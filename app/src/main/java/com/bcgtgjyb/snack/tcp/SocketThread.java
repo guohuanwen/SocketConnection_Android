@@ -34,7 +34,6 @@ public class SocketThread extends Thread {
     private boolean isRun = false;
     private DataOutputStream dataOutputStream;
     private DataInputStream dataInputStream;
-    private Thread heartBeatThread;
 
     public SocketThread(String host, int port) {
         if (host != null) {
@@ -46,66 +45,36 @@ public class SocketThread extends Thread {
         writeExecutorService = Executors.newSingleThreadExecutor();
         mainHandler = new Handler(Looper.getMainLooper());
         isRun = true;
-        heartBeatThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (mSocket != null) {
-                        Log.i(TAG, "run: sendUrgentData");
-                        try {
-                            // 发送心跳包
-                            Notice.rq_game_changeDirection message = Notice.rq_game_changeDirection.newBuilder().setDirection(0).setUid("心跳").build();
-                            byte[] b = message.toByteArray();
-                            Log.i(TAG, "run: " + b.length);
-                            //类型
-                            dataOutputStream.writeInt(0);
-                            //长度
-                            dataOutputStream.writeInt(b.length);
-                            dataOutputStream.write(b);
-                            dataOutputStream.flush();
-                        } catch (IOException e) {
-                            socketStatus = IS_CONNECTING;
-                            reConnect();
-                            e.printStackTrace();
-                        }
-                        try {
-                            Thread.sleep(3 * 1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        });
     }
 
-    private void socketSonnect() throws IOException {
-        Log.i(TAG, "socketSonnect: ");
+    private void socketConnect() throws IOException {
+        Log.i(TAG, "socketConnect: ");
         if (mSocket != null && mSocket.isConnected()) {
             return;
         }
         mSocket = new Socket(HOST, PORT);
         dataOutputStream = new DataOutputStream(mSocket.getOutputStream());
         dataInputStream = new DataInputStream(mSocket.getInputStream());
-        if (!heartBeatThread.isAlive()) {
-            heartBeatThread.start();
-        }
     }
 
     @Override
     public void run() {
         try {
-            socketSonnect();
+            socketConnect();
             socketStatus = IS_CONNECTED;
         } catch (Exception e) {
             Log.i(TAG, "run: " + "连接错误");
             e.printStackTrace();
+            socketStatus = IS_CONNECTING;
+            reConnect();
+            socketStatus = IS_CONNECTED;
         }
+        Log.i(TAG, "run: " + isRun);
         while (isRun) {
             try {
                 final byte[] bytes = read();
                 if (bytes == null) {
-                    Thread.sleep(3 * 1000);
+//                    Thread.sleep(3 * 1000);
                 } else {
                     mainHandler.post(new Runnable() {
                         @Override
@@ -114,45 +83,44 @@ public class SocketThread extends Thread {
                         }
                     });
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
+                try {
+                    socketDisConnect();
+                    socketConnect();
+                    socketStatus = IS_CONNECTING;
+                    reConnect();
+                    socketStatus = IS_CONNECTED;
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 e.printStackTrace();
             }
         }
     }
 
     private byte[] read() throws IOException {
-        if (dataInputStream != null && dataInputStream.available() > 0) {
-            int type = dataInputStream.readInt();
-            int length = dataInputStream.readInt();
-            byte[] buffers = new byte[length];
-            dataInputStream.readFully(buffers);
-            return buffers;
-        } else {
-            socketStatus = IS_CONNECTING;
-            return null;
-        }
+        int type = dataInputStream.readInt();
+        int length = dataInputStream.readInt();
+        byte[] buffers = new byte[length];
+        dataInputStream.readFully(buffers);
+        return buffers;
     }
 
     private void reConnect() {
-        Log.i(TAG, "reConnect: 1:"+isRun);
-        if (true) {
+        Log.i(TAG, "reConnect: 1:" + isRun);
+        while (true) {
             try {
                 Thread.sleep(3 * 1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (mSocket.isConnected() && socketStatus == IS_CONNECTED) {
-                Log.i(TAG, "reConnect: 3");
-                return;
-            }
             Log.i(TAG, "reConnect: 2");
             try {
                 socketStatus = IS_CONNECTING;
                 socketDisConnect();
-                socketSonnect();
+                socketConnect();
                 socketStatus = IS_CONNECTED;
+                break;
             } catch (Exception e) {
                 e.printStackTrace();
                 socketStatus = IS_CONNECTING;
