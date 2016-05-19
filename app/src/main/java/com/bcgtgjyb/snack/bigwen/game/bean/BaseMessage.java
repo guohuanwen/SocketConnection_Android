@@ -27,6 +27,6 @@ public class BaseMessage {
     //type = 3
 
 
-    //本地使用
+    //本地使用属性
     public boolean isSendSuccess;
 }

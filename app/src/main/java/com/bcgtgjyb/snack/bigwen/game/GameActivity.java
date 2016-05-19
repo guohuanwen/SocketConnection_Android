@@ -172,6 +172,8 @@ public class GameActivity extends Activity {
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver);
         gameThread.stopConnect();
+
+
     }
 
 }
