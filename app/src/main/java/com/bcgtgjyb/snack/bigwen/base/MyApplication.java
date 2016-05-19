@@ -1,4 +1,4 @@
-package com.bcgtgjyb.snack;
+package com.bcgtgjyb.snack.bigwen.base;
 
 import android.app.Application;
 import android.content.Context;

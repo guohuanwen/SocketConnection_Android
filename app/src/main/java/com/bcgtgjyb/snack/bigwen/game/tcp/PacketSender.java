@@ -2,7 +2,7 @@ package com.bcgtgjyb.snack.bigwen.game.tcp;
 
 import android.util.Log;
 
-import com.bcgtgjyb.snack.tcp.Notice;
+import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
 import com.google.protobuf.GeneratedMessage;
 
 import java.nio.ByteBuffer;

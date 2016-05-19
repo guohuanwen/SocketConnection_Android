@@ -3,8 +3,8 @@ package com.bcgtgjyb.snack.bigwen.game.tcp;
 import android.content.Intent;
 import android.util.Log;
 
-import com.bcgtgjyb.snack.MyApplication;
-import com.bcgtgjyb.snack.tcp.Notice;
+import com.bcgtgjyb.snack.bigwen.base.MyApplication;
+import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
 
 import java.io.DataInputStream;
 

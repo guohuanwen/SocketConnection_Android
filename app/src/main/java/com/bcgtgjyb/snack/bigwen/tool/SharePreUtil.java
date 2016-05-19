@@ -1,4 +1,4 @@
-package com.bcgtgjyb.snack;
+package com.bcgtgjyb.snack.bigwen.tool;
 
 import android.content.Context;
 import android.content.SharedPreferences;

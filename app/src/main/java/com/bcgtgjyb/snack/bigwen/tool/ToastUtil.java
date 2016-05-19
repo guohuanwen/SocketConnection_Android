@@ -1,8 +1,8 @@
-package com.bcgtgjyb.snack.bigwen.game;
+package com.bcgtgjyb.snack.bigwen.tool;
 
 import android.widget.Toast;
 
-import com.bcgtgjyb.snack.MyApplication;
+import com.bcgtgjyb.snack.bigwen.base.MyApplication;
 
 /**
  * Created by bigwen on 2016/5/19.

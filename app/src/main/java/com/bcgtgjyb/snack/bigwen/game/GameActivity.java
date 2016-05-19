@@ -15,7 +15,8 @@ import com.bcgtgjyb.snack.R;
 import com.bcgtgjyb.snack.bigwen.game.tcp.GameThread;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketSender;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketType;
-import com.bcgtgjyb.snack.tcp.Notice;
+import com.bcgtgjyb.snack.bigwen.tool.ToastUtil;
+import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
 
 /**
  * Created by bigwen on 2016/5/15.
@@ -31,7 +32,6 @@ public class GameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_game);
         chatText = (TextView) findViewById(R.id.activity_game_chat);
         editText = (EditText) findViewById(R.id.activity_game_edit);
