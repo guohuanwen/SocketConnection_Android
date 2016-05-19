@@ -1,7 +1,9 @@
 package com.bcgtgjyb.snack.bigwen.game.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bcgtgjyb.snack.R;
+import com.bcgtgjyb.snack.bigwen.game.GameActivity;
 import com.bcgtgjyb.snack.bigwen.game.bean.BaseMessage;
 import com.bcgtgjyb.snack.bigwen.game.bean.User;
 
@@ -27,6 +30,9 @@ public class ChatItem extends LinearLayout {
     private TextView rightName;
     private RelativeLayout leftContent;
     private RelativeLayout rightContent;
+    private TextView resend;
+    private int position;
+    private String TAG = ChatItem.class.getSimpleName();
 
     //type=0
     private TextView leftType0;
@@ -57,14 +63,31 @@ public class ChatItem extends LinearLayout {
         rightName = (TextView) findViewById(R.id.chat_item_right_name);
         leftContent = (RelativeLayout) findViewById(R.id.chat_item_left_content);
         rightContent = (RelativeLayout) findViewById(R.id.chat_item_right_content);
+        resend = (TextView) findViewById(R.id.chat_item_resend);
 
         rightType0 = (TextView) findViewById(R.id.chat_item_right_type_0);
         leftType0 = (TextView) findViewById(R.id.chat_item_left_type_0);
     }
 
-    public void setView(BaseMessage baseMessage) {
+    public void setView(BaseMessage baseMessage, final int position) {
+        this.position = position;
         if (baseMessage.type == 0) {
             setType0(baseMessage);
+            if (baseMessage.isSendSuccess){
+                resend.setVisibility(View.GONE);
+            }else {
+                resend.setVisibility(View.VISIBLE);
+                resend.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i(TAG, "onClick: ");
+                        Intent intent = new Intent();
+                        intent.putExtra("position",position);
+                        intent.setAction(GameActivity.RESENDACTION);
+                        mContext.sendBroadcast(intent);
+                    }
+                });
+            }
         }
     }
 

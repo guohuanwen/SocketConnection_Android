@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.bcgtgjyb.snack.bigwen.game.bean.BaseMessage;
 import com.bcgtgjyb.snack.bigwen.game.tcp.GameThread;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketSender;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketType;
+import com.bcgtgjyb.snack.bigwen.game.tcp.SendCallback;
 import com.bcgtgjyb.snack.bigwen.game.view.ChatAdapter;
 import com.bcgtgjyb.snack.bigwen.game.view.MessageUtil;
 import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
@@ -32,6 +34,8 @@ public class GameActivity extends Activity {
     private EditText editText;
     private Button button;
     private ChatAdapter mChatAdapter;
+    public static String RESENDACTION = "GameActivity_ReSend";
+    private String TAG = GameActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +48,7 @@ public class GameActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendText();
+                sendText(editText.getText().toString());
             }
         });
 
@@ -68,18 +72,51 @@ public class GameActivity extends Activity {
         chatList.setAdapter(mChatAdapter);
     }
 
-    private void sendText(){
-        String text = editText.getText().toString();
-        if ("".equals(text)){
+    private void getEdit(){
+
+    }
+
+    private void sendText(final String text) {
+        if ("".equals(text)) {
             return;
         }
-        try {
-            PacketSender.sendMessage(gameThread,text);
-            editText.setText("");
-            BaseMessage baseMessage = MessageUtil.makeTextMessage(text,0,1,0);
-            mChatAdapter.addMessage(baseMessage);
-        } catch (Exception e) {
-            e.printStackTrace();
+        PacketSender.sendMessage(gameThread, text, new SendCallback() {
+            @Override
+            public void onSuccess() {
+                editText.setText("");
+                BaseMessage baseMessage = MessageUtil.makeTextMessage(text, 0, 1, 0,true);
+                mChatAdapter.addMessage(baseMessage);
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+                editText.setText("");
+                BaseMessage baseMessage = MessageUtil.makeTextMessage(text, 0, 1, 0,false);
+                mChatAdapter.addMessage(baseMessage);
+            }
+        });
+    }
+
+    private void reSendText(final BaseMessage baseMessage) {
+        PacketSender.sendMessage(gameThread, baseMessage.text, new SendCallback() {
+            @Override
+            public void onSuccess() {
+                baseMessage.isSendSuccess = true;
+                mChatAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+
+            }
+        });
+    }
+
+    public void reSend(int p){
+        Log.i(TAG, "reSend: ");
+        BaseMessage baseMessage = (BaseMessage)mChatAdapter.getItem(p);
+        if (baseMessage.type == 0){
+            reSendText(baseMessage);
         }
     }
 
@@ -102,17 +139,22 @@ public class GameActivity extends Activity {
         mBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                switch (intent.getAction()){
+                switch (intent.getAction()) {
+                    //重发
+                    case "GameActivity_ReSend":
+                        int p = intent.getIntExtra("position",-1);
+                        reSend(p);
+                        break;
                     case "rs_util_heartbeat":
                         Bundle bundle = intent.getExtras();
-                        Notice.rs_util_heartbeat rs  = (Notice.rs_util_heartbeat)bundle.get("rs_util_heartbeat");
-                        ToastUtil.show("服务器的heart:"+rs.getCode());
+                        Notice.rs_util_heartbeat rs = (Notice.rs_util_heartbeat) bundle.get("rs_util_heartbeat");
+                        ToastUtil.show("服务器的heart:" + rs.getCode());
                         break;
                     case "rs_receiver_message":
                         Bundle b = intent.getExtras();
-                        Notice.rs_receiver_message rq  = (Notice.rs_receiver_message)b.get("rs_receiver_message");
+                        Notice.rs_receiver_message rq = (Notice.rs_receiver_message) b.get("rs_receiver_message");
 //                        ToastUtil.show("服务器的heart:"+rq.getRsText());
-                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(),1,0,0);
+                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(), 1, 0, 0,true);
                         mChatAdapter.addMessage(baseMessage);
                         break;
                 }
@@ -121,7 +163,8 @@ public class GameActivity extends Activity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PacketType.getInstance().getPocketName(1));
         intentFilter.addAction(PacketType.getInstance().getPocketName(3));
-        registerReceiver(mBroadcastReceiver,intentFilter);
+        intentFilter.addAction(RESENDACTION);
+        registerReceiver(mBroadcastReceiver, intentFilter);
     }
 
     @Override

@@ -25,13 +25,13 @@
             android:text="guohuanwen"/>
         <RelativeLayout
             android:id="@+id/chat_item_left_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/chat_item_left_name"
             android:layout_toRightOf="@+id/chat_item_left_head">
             <TextView
                 android:id="@+id/chat_item_left_type_0"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="guohuanwen"/>
         </RelativeLayout>
@@ -57,15 +57,25 @@
             android:layout_toLeftOf="@+id/chat_item_right_head"
             android:layout_marginBottom="8dp"
             android:text="guohuanwen"/>
+        <TextView
+            android:id="@+id/chat_item_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/chat_item_right_content"
+            android:layout_toLeftOf="@+id/chat_item_right_content"
+            android:layout_margin="4dp"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            android:text="重发"/>
         <RelativeLayout
             android:id="@+id/chat_item_right_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/chat_item_right_name"
             android:layout_toLeftOf="@+id/chat_item_right_head">
             <TextView
                 android:id="@+id/chat_item_right_type_0"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="guohuanwen"

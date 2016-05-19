@@ -1,5 +1,7 @@
 package com.bcgtgjyb.snack.bigwen.game.tcp;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import java.io.DataInputStream;
@@ -23,12 +25,14 @@ public class GameThread extends Thread implements TcpOperate {
     private boolean isConnection = false;
     private boolean isRun = false;
     private ExecutorService executorService;
+    private Handler mHandler;
 
     public GameThread(String ip, int port) {
         this.ip = ip;
         this.port = port;
         isRun = true;
         executorService = Executors.newSingleThreadExecutor();
+        mHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override
@@ -115,7 +119,7 @@ public class GameThread extends Thread implements TcpOperate {
     }
 
     @Override
-    public void sendPocket(final byte[] bytes) {
+    public void sendPocket(final byte[] bytes, final SendCallback sendCallback) {
         Log.i(TAG, "sendPocket: " + isConnection);
         if (isConnection) {
             executorService.submit(new Runnable() {
@@ -124,13 +128,39 @@ public class GameThread extends Thread implements TcpOperate {
                     try {
                         dataOS.write(bytes);
                         dataOS.flush();
-                    }catch (IOException e){
+                        if (sendCallback != null) {
+                            mHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    sendCallback.onSuccess();
+
+                                }
+                            });
+                        }
+                    } catch (final IOException e) {
                         isConnection = false;
-                        reConnection(mSocket,ip,port);
+                        reConnection(mSocket, ip, port);
                         e.printStackTrace();
+                        if (sendCallback != null) {
+                            mHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    sendCallback.onFailed(e);
+                                }
+                            });
+                        }
                     }
                 }
             });
+        }else {
+            if (sendCallback != null) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        sendCallback.onFailed(new Exception("网络未连接"));
+                    }
+                });
+            }
         }
     }
 

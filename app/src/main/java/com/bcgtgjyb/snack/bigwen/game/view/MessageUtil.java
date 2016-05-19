@@ -7,12 +7,14 @@ import com.bcgtgjyb.snack.bigwen.game.bean.BaseMessage;
  */
 public class MessageUtil {
 
-    public static BaseMessage makeTextMessage(String text,int sendId,int receiverId,int type){
+    public static BaseMessage makeTextMessage(String text,int sendId,int receiverId,int type,boolean isSendSuccess){
         BaseMessage baseMessage = new BaseMessage();
         baseMessage.text = text;
         baseMessage.sendId = sendId;
         baseMessage.receiverId = receiverId;
         baseMessage.type = type;
+        baseMessage.isSendSuccess = isSendSuccess;
         return baseMessage;
     }
+
 }

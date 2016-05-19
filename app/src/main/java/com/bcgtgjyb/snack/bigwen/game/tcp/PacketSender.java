@@ -17,23 +17,23 @@ public class PacketSender {
         Notice.rq_util_heartbeat rq_util_heartbeat = Notice.rq_util_heartbeat.newBuilder()
                 .setKeepAlive(1)
                 .build();
-        send(rq_util_heartbeat,0,tcpOperate);
+        send(rq_util_heartbeat,0,tcpOperate,null);
     }
 
-    public static void sendMessage(TcpOperate tcpOperate,String text) throws Exception {
+    public static void sendMessage(TcpOperate tcpOperate,String text,SendCallback sendCallback)  {
         Notice.rq_send_message rq_send_message = Notice.rq_send_message.newBuilder()
                 .setRqText(text)
                 .build();
-        send(rq_send_message,2,tcpOperate);
+        send(rq_send_message,2,tcpOperate,sendCallback);
     }
 
-    private static void send(GeneratedMessage generatedMessage, int type, TcpOperate tcpOperate) throws Exception {
+    private static void send(GeneratedMessage generatedMessage, int type, TcpOperate tcpOperate,SendCallback sendCallback) {
         byte[] bytes = generatedMessage.toByteArray();
         int length = bytes.length;
         ByteBuffer byteBuffer = ByteBuffer.allocate(8+length);
         byteBuffer.putInt(type);
         byteBuffer.putInt(length);
         byteBuffer.put(bytes);
-        tcpOperate.sendPocket(byteBuffer.array());
+        tcpOperate.sendPocket(byteBuffer.array(),sendCallback);
     }
 }

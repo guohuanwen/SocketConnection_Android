@@ -16,7 +16,7 @@ public interface TcpOperate {
     //读取包
     void readPocket(DataInputStream dataInputStream) throws Exception;
     //发送包
-    void sendPocket(byte[] bytes) throws Exception;
+    void sendPocket(byte[] bytes,SendCallback sendCallback);
     //清除缓冲等对象
     void clearSocket() throws Exception;
 }

@@ -57,7 +57,7 @@ public class ChatAdapter extends BaseAdapter {
         }else {
             chatItem = (ChatItem)convertView;
         }
-        chatItem.setView(messages.get(position));
+        chatItem.setView(messages.get(position),position);
         return chatItem;
     }
 }
