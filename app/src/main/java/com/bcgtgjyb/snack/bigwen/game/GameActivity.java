@@ -9,14 +9,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.bcgtgjyb.snack.R;
+import com.bcgtgjyb.snack.bigwen.game.bean.BaseMessage;
 import com.bcgtgjyb.snack.bigwen.game.tcp.GameThread;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketSender;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketType;
-import com.bcgtgjyb.snack.bigwen.tool.ToastUtil;
+import com.bcgtgjyb.snack.bigwen.game.view.ChatAdapter;
+import com.bcgtgjyb.snack.bigwen.game.view.MessageUtil;
 import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
+import com.bcgtgjyb.snack.bigwen.tool.ToastUtil;
 
 /**
  * Created by bigwen on 2016/5/15.
@@ -25,15 +28,16 @@ public class GameActivity extends Activity {
 
     private BroadcastReceiver mBroadcastReceiver;
     private GameThread gameThread;
-    private TextView chatText;
+    private ListView chatList;
     private EditText editText;
     private Button button;
+    private ChatAdapter mChatAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        chatText = (TextView) findViewById(R.id.activity_game_chat);
+        chatList = (ListView) findViewById(R.id.activity_game_chat);
         editText = (EditText) findViewById(R.id.activity_game_edit);
         button = (Button) findViewById(R.id.activity_game_send);
 
@@ -45,6 +49,8 @@ public class GameActivity extends Activity {
         });
 
         initBroadcast();
+        initListView();
+
         gameThread = new GameThread("192.168.1.233", 7850);
         gameThread.start();
 
@@ -54,6 +60,12 @@ public class GameActivity extends Activity {
                 initSender();
             }
         }).start();
+
+    }
+
+    private void initListView() {
+        mChatAdapter = new ChatAdapter(this);
+        chatList.setAdapter(mChatAdapter);
     }
 
     private void sendText(){
@@ -64,6 +76,8 @@ public class GameActivity extends Activity {
         try {
             PacketSender.sendMessage(gameThread,text);
             editText.setText("");
+            BaseMessage baseMessage = MessageUtil.makeTextMessage(text,0,1,0);
+            mChatAdapter.addMessage(baseMessage);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,7 +111,9 @@ public class GameActivity extends Activity {
                     case "rs_receiver_message":
                         Bundle b = intent.getExtras();
                         Notice.rs_receiver_message rq  = (Notice.rs_receiver_message)b.get("rs_receiver_message");
-                        ToastUtil.show("服务器的heart:"+rq.getRsText());
+//                        ToastUtil.show("服务器的heart:"+rq.getRsText());
+                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(),1,0,0);
+                        mChatAdapter.addMessage(baseMessage);
                         break;
                 }
             }

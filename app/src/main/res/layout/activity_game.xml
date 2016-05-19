@@ -3,10 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
-    <TextView
+    <ListView
         android:id="@+id/activity_game_chat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <EditText
         android:id="@+id/activity_game_edit"
         android:layout_margin="8dp"
