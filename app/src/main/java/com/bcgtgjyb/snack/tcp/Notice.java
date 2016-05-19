@@ -6,53 +6,39 @@ public final class Notice {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface rq_game_changeDirectionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:rq_game_changeDirection)
+  public interface rq_util_heartbeatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rq_util_heartbeat)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string uid = 1;</code>
+     * <code>required int32 keepAlive = 1;</code>
      */
-    boolean hasUid();
+    boolean hasKeepAlive();
     /**
-     * <code>required string uid = 1;</code>
+     * <code>required int32 keepAlive = 1;</code>
      */
-    String getUid();
-    /**
-     * <code>required string uid = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getUidBytes();
-
-    /**
-     * <code>required float direction = 2;</code>
-     */
-    boolean hasDirection();
-    /**
-     * <code>required float direction = 2;</code>
-     */
-    float getDirection();
+    int getKeepAlive();
   }
   /**
-   * Protobuf type {@code rq_game_changeDirection}
+   * Protobuf type {@code rq_util_heartbeat}
    */
-  public static final class rq_game_changeDirection extends
+  public static final class rq_util_heartbeat extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:rq_game_changeDirection)
-      rq_game_changeDirectionOrBuilder {
-    // Use rq_game_changeDirection.newBuilder() to construct.
-    private rq_game_changeDirection(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:rq_util_heartbeat)
+      rq_util_heartbeatOrBuilder {
+    // Use rq_util_heartbeat.newBuilder() to construct.
+    private rq_util_heartbeat(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private rq_game_changeDirection(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private rq_util_heartbeat(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final rq_game_changeDirection defaultInstance;
-    public static rq_game_changeDirection getDefaultInstance() {
+    private static final rq_util_heartbeat defaultInstance;
+    public static rq_util_heartbeat getDefaultInstance() {
       return defaultInstance;
     }
 
-    public rq_game_changeDirection getDefaultInstanceForType() {
+    public rq_util_heartbeat getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -62,7 +48,822 @@ public final class Notice {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private rq_game_changeDirection(
+    private rq_util_heartbeat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              keepAlive_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Notice.internal_static_rq_util_heartbeat_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Notice.internal_static_rq_util_heartbeat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rq_util_heartbeat.class, Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<rq_util_heartbeat> PARSER =
+        new com.google.protobuf.AbstractParser<rq_util_heartbeat>() {
+      public rq_util_heartbeat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new rq_util_heartbeat(input, extensionRegistry);
+      }
+    };
+
+    @Override
+    public com.google.protobuf.Parser<rq_util_heartbeat> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int KEEPALIVE_FIELD_NUMBER = 1;
+    private int keepAlive_;
+    /**
+     * <code>required int32 keepAlive = 1;</code>
+     */
+    public boolean hasKeepAlive() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 keepAlive = 1;</code>
+     */
+    public int getKeepAlive() {
+      return keepAlive_;
+    }
+
+    private void initFields() {
+      keepAlive_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasKeepAlive()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, keepAlive_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, keepAlive_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    protected Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rq_util_heartbeat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rq_util_heartbeat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rq_util_heartbeat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rq_util_heartbeat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rq_util_heartbeat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rq_util_heartbeat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rq_util_heartbeat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rq_util_heartbeat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rq_util_heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rq_util_heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rq_util_heartbeat prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rq_util_heartbeat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rq_util_heartbeat)
+        rq_util_heartbeatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Notice.internal_static_rq_util_heartbeat_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Notice.internal_static_rq_util_heartbeat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rq_util_heartbeat.class, Builder.class);
+      }
+
+      // Construct using Notice.rq_util_heartbeat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        keepAlive_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Notice.internal_static_rq_util_heartbeat_descriptor;
+      }
+
+      public rq_util_heartbeat getDefaultInstanceForType() {
+        return rq_util_heartbeat.getDefaultInstance();
+      }
+
+      public rq_util_heartbeat build() {
+        rq_util_heartbeat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rq_util_heartbeat buildPartial() {
+        rq_util_heartbeat result = new rq_util_heartbeat(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.keepAlive_ = keepAlive_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rq_util_heartbeat) {
+          return mergeFrom((rq_util_heartbeat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rq_util_heartbeat other) {
+        if (other == rq_util_heartbeat.getDefaultInstance()) return this;
+        if (other.hasKeepAlive()) {
+          setKeepAlive(other.getKeepAlive());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasKeepAlive()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rq_util_heartbeat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rq_util_heartbeat) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int keepAlive_ ;
+      /**
+       * <code>required int32 keepAlive = 1;</code>
+       */
+      public boolean hasKeepAlive() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 keepAlive = 1;</code>
+       */
+      public int getKeepAlive() {
+        return keepAlive_;
+      }
+      /**
+       * <code>required int32 keepAlive = 1;</code>
+       */
+      public Builder setKeepAlive(int value) {
+        bitField0_ |= 0x00000001;
+        keepAlive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 keepAlive = 1;</code>
+       */
+      public Builder clearKeepAlive() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        keepAlive_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rq_util_heartbeat)
+    }
+
+    static {
+      defaultInstance = new rq_util_heartbeat(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rq_util_heartbeat)
+  }
+
+  public interface rs_util_heartbeatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rs_util_heartbeat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    boolean hasCode();
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code rs_util_heartbeat}
+   */
+  public static final class rs_util_heartbeat extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rs_util_heartbeat)
+      rs_util_heartbeatOrBuilder {
+    // Use rs_util_heartbeat.newBuilder() to construct.
+    private rs_util_heartbeat(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private rs_util_heartbeat(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final rs_util_heartbeat defaultInstance;
+    public static rs_util_heartbeat getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public rs_util_heartbeat getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private rs_util_heartbeat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              code_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Notice.internal_static_rs_util_heartbeat_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Notice.internal_static_rs_util_heartbeat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rs_util_heartbeat.class, Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<rs_util_heartbeat> PARSER =
+        new com.google.protobuf.AbstractParser<rs_util_heartbeat>() {
+      public rs_util_heartbeat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new rs_util_heartbeat(input, extensionRegistry);
+      }
+    };
+
+    @Override
+    public com.google.protobuf.Parser<rs_util_heartbeat> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    private void initFields() {
+      code_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    protected Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rs_util_heartbeat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rs_util_heartbeat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rs_util_heartbeat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rs_util_heartbeat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rs_util_heartbeat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rs_util_heartbeat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rs_util_heartbeat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rs_util_heartbeat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rs_util_heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rs_util_heartbeat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rs_util_heartbeat prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rs_util_heartbeat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rs_util_heartbeat)
+        rs_util_heartbeatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Notice.internal_static_rs_util_heartbeat_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Notice.internal_static_rs_util_heartbeat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rs_util_heartbeat.class, Builder.class);
+      }
+
+      // Construct using Notice.rs_util_heartbeat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Notice.internal_static_rs_util_heartbeat_descriptor;
+      }
+
+      public rs_util_heartbeat getDefaultInstanceForType() {
+        return rs_util_heartbeat.getDefaultInstance();
+      }
+
+      public rs_util_heartbeat build() {
+        rs_util_heartbeat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rs_util_heartbeat buildPartial() {
+        rs_util_heartbeat result = new rs_util_heartbeat(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rs_util_heartbeat) {
+          return mergeFrom((rs_util_heartbeat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rs_util_heartbeat other) {
+        if (other == rs_util_heartbeat.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCode()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rs_util_heartbeat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rs_util_heartbeat) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int code_ ;
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        bitField0_ |= 0x00000001;
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rs_util_heartbeat)
+    }
+
+    static {
+      defaultInstance = new rs_util_heartbeat(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rs_util_heartbeat)
+  }
+
+  public interface rq_send_messageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rq_send_message)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string rq_text = 1;</code>
+     */
+    boolean hasRqText();
+    /**
+     * <code>required string rq_text = 1;</code>
+     */
+    String getRqText();
+    /**
+     * <code>required string rq_text = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getRqTextBytes();
+  }
+  /**
+   * Protobuf type {@code rq_send_message}
+   */
+  public static final class rq_send_message extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rq_send_message)
+      rq_send_messageOrBuilder {
+    // Use rq_send_message.newBuilder() to construct.
+    private rq_send_message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private rq_send_message(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final rq_send_message defaultInstance;
+    public static rq_send_message getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public rq_send_message getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private rq_send_message(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -88,12 +889,7 @@ public final class Notice {
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              uid_ = bs;
-              break;
-            }
-            case 21: {
-              bitField0_ |= 0x00000002;
-              direction_ = input.readFloat();
+              rqText_ = bs;
               break;
             }
           }
@@ -110,45 +906,45 @@ public final class Notice {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Notice.internal_static_rq_game_changeDirection_descriptor;
+      return Notice.internal_static_rq_send_message_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Notice.internal_static_rq_game_changeDirection_fieldAccessorTable
+      return Notice.internal_static_rq_send_message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              rq_game_changeDirection.class, Builder.class);
+              rq_send_message.class, Builder.class);
     }
 
-    public static com.google.protobuf.Parser<rq_game_changeDirection> PARSER =
-        new com.google.protobuf.AbstractParser<rq_game_changeDirection>() {
-      public rq_game_changeDirection parsePartialFrom(
+    public static com.google.protobuf.Parser<rq_send_message> PARSER =
+        new com.google.protobuf.AbstractParser<rq_send_message>() {
+      public rq_send_message parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new rq_game_changeDirection(input, extensionRegistry);
+        return new rq_send_message(input, extensionRegistry);
       }
     };
 
     @Override
-    public com.google.protobuf.Parser<rq_game_changeDirection> getParserForType() {
+    public com.google.protobuf.Parser<rq_send_message> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    public static final int UID_FIELD_NUMBER = 1;
-    private Object uid_;
+    public static final int RQ_TEXT_FIELD_NUMBER = 1;
+    private Object rqText_;
     /**
-     * <code>required string uid = 1;</code>
+     * <code>required string rq_text = 1;</code>
      */
-    public boolean hasUid() {
+    public boolean hasRqText() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string uid = 1;</code>
+     * <code>required string rq_text = 1;</code>
      */
-    public String getUid() {
-      Object ref = uid_;
+    public String getRqText() {
+      Object ref = rqText_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -156,46 +952,30 @@ public final class Notice {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          uid_ = s;
+          rqText_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string uid = 1;</code>
+     * <code>required string rq_text = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getUidBytes() {
-      Object ref = uid_;
+        getRqTextBytes() {
+      Object ref = rqText_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        uid_ = b;
+        rqText_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int DIRECTION_FIELD_NUMBER = 2;
-    private float direction_;
-    /**
-     * <code>required float direction = 2;</code>
-     */
-    public boolean hasDirection() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required float direction = 2;</code>
-     */
-    public float getDirection() {
-      return direction_;
-    }
-
     private void initFields() {
-      uid_ = "";
-      direction_ = 0F;
+      rqText_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -203,11 +983,7 @@ public final class Notice {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasUid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasDirection()) {
+      if (!hasRqText()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -219,10 +995,7 @@ public final class Notice {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getUidBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, direction_);
+        output.writeBytes(1, getRqTextBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -235,11 +1008,7 @@ public final class Notice {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getUidBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, direction_);
+          .computeBytesSize(1, getRqTextBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -253,53 +1022,53 @@ public final class Notice {
       return super.writeReplace();
     }
 
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rq_game_changeDirection parseFrom(byte[] data)
+    public static rq_send_message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rq_game_changeDirection parseFrom(java.io.InputStream input)
+    public static rq_send_message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static rq_game_changeDirection parseDelimitedFrom(java.io.InputStream input)
+    public static rq_send_message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static rq_game_changeDirection parseDelimitedFrom(
+    public static rq_send_message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rq_game_changeDirection parseFrom(
+    public static rq_send_message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -308,7 +1077,7 @@ public final class Notice {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(rq_game_changeDirection prototype) {
+    public static Builder newBuilder(rq_send_message prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -320,25 +1089,25 @@ public final class Notice {
       return builder;
     }
     /**
-     * Protobuf type {@code rq_game_changeDirection}
+     * Protobuf type {@code rq_send_message}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:rq_game_changeDirection)
-        rq_game_changeDirectionOrBuilder {
+        // @@protoc_insertion_point(builder_implements:rq_send_message)
+        rq_send_messageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Notice.internal_static_rq_game_changeDirection_descriptor;
+        return Notice.internal_static_rq_send_message_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Notice.internal_static_rq_game_changeDirection_fieldAccessorTable
+        return Notice.internal_static_rq_send_message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                rq_game_changeDirection.class, Builder.class);
+                rq_send_message.class, Builder.class);
       }
 
-      // Construct using Notice.rq_game_changeDirection.newBuilder()
+      // Construct using Notice.rq_send_message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -358,10 +1127,8 @@ public final class Notice {
 
       public Builder clear() {
         super.clear();
-        uid_ = "";
+        rqText_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        direction_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -371,67 +1138,56 @@ public final class Notice {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Notice.internal_static_rq_game_changeDirection_descriptor;
+        return Notice.internal_static_rq_send_message_descriptor;
       }
 
-      public rq_game_changeDirection getDefaultInstanceForType() {
-        return rq_game_changeDirection.getDefaultInstance();
+      public rq_send_message getDefaultInstanceForType() {
+        return rq_send_message.getDefaultInstance();
       }
 
-      public rq_game_changeDirection build() {
-        rq_game_changeDirection result = buildPartial();
+      public rq_send_message build() {
+        rq_send_message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public rq_game_changeDirection buildPartial() {
-        rq_game_changeDirection result = new rq_game_changeDirection(this);
+      public rq_send_message buildPartial() {
+        rq_send_message result = new rq_send_message(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.uid_ = uid_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.direction_ = direction_;
+        result.rqText_ = rqText_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof rq_game_changeDirection) {
-          return mergeFrom((rq_game_changeDirection)other);
+        if (other instanceof rq_send_message) {
+          return mergeFrom((rq_send_message)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(rq_game_changeDirection other) {
-        if (other == rq_game_changeDirection.getDefaultInstance()) return this;
-        if (other.hasUid()) {
+      public Builder mergeFrom(rq_send_message other) {
+        if (other == rq_send_message.getDefaultInstance()) return this;
+        if (other.hasRqText()) {
           bitField0_ |= 0x00000001;
-          uid_ = other.uid_;
+          rqText_ = other.rqText_;
           onChanged();
-        }
-        if (other.hasDirection()) {
-          setDirection(other.getDirection());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasUid()) {
-          
-          return false;
-        }
-        if (!hasDirection()) {
+        if (!hasRqText()) {
           
           return false;
         }
@@ -442,11 +1198,11 @@ public final class Notice {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        rq_game_changeDirection parsedMessage = null;
+        rq_send_message parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (rq_game_changeDirection) e.getUnfinishedMessage();
+          parsedMessage = (rq_send_message) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -457,24 +1213,24 @@ public final class Notice {
       }
       private int bitField0_;
 
-      private Object uid_ = "";
+      private Object rqText_ = "";
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
-      public boolean hasUid() {
+      public boolean hasRqText() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
-      public String getUid() {
-        Object ref = uid_;
+      public String getRqText() {
+        Object ref = rqText_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            uid_ = s;
+            rqText_ = s;
           }
           return s;
         } else {
@@ -482,105 +1238,572 @@ public final class Notice {
         }
       }
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getUidBytes() {
-        Object ref = uid_;
+          getRqTextBytes() {
+        Object ref = rqText_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          uid_ = b;
+          rqText_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
-      public Builder setUid(
+      public Builder setRqText(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        uid_ = value;
+        rqText_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
-      public Builder clearUid() {
+      public Builder clearRqText() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        uid_ = getDefaultInstance().getUid();
+        rqText_ = getDefaultInstance().getRqText();
         onChanged();
         return this;
       }
       /**
-       * <code>required string uid = 1;</code>
+       * <code>required string rq_text = 1;</code>
        */
-      public Builder setUidBytes(
+      public Builder setRqTextBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        uid_ = value;
+        rqText_ = value;
         onChanged();
         return this;
       }
 
-      private float direction_ ;
-      /**
-       * <code>required float direction = 2;</code>
-       */
-      public boolean hasDirection() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required float direction = 2;</code>
-       */
-      public float getDirection() {
-        return direction_;
-      }
-      /**
-       * <code>required float direction = 2;</code>
-       */
-      public Builder setDirection(float value) {
-        bitField0_ |= 0x00000002;
-        direction_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required float direction = 2;</code>
-       */
-      public Builder clearDirection() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        direction_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:rq_game_changeDirection)
+      // @@protoc_insertion_point(builder_scope:rq_send_message)
     }
 
     static {
-      defaultInstance = new rq_game_changeDirection(true);
+      defaultInstance = new rq_send_message(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:rq_game_changeDirection)
+    // @@protoc_insertion_point(class_scope:rq_send_message)
+  }
+
+  public interface rs_receiver_messageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rs_receiver_message)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    boolean hasRsText();
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    String getRsText();
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getRsTextBytes();
+  }
+  /**
+   * Protobuf type {@code rs_receiver_message}
+   */
+  public static final class rs_receiver_message extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rs_receiver_message)
+      rs_receiver_messageOrBuilder {
+    // Use rs_receiver_message.newBuilder() to construct.
+    private rs_receiver_message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private rs_receiver_message(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final rs_receiver_message defaultInstance;
+    public static rs_receiver_message getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public rs_receiver_message getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private rs_receiver_message(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              rsText_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Notice.internal_static_rs_receiver_message_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Notice.internal_static_rs_receiver_message_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rs_receiver_message.class, Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<rs_receiver_message> PARSER =
+        new com.google.protobuf.AbstractParser<rs_receiver_message>() {
+      public rs_receiver_message parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new rs_receiver_message(input, extensionRegistry);
+      }
+    };
+
+    @Override
+    public com.google.protobuf.Parser<rs_receiver_message> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int RS_TEXT_FIELD_NUMBER = 1;
+    private Object rsText_;
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    public boolean hasRsText() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    public String getRsText() {
+      Object ref = rsText_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          rsText_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string rs_text = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRsTextBytes() {
+      Object ref = rsText_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        rsText_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      rsText_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasRsText()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getRsTextBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getRsTextBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    protected Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rs_receiver_message parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rs_receiver_message parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rs_receiver_message parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rs_receiver_message parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rs_receiver_message parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rs_receiver_message parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rs_receiver_message parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rs_receiver_message parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rs_receiver_message parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rs_receiver_message parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rs_receiver_message prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rs_receiver_message}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rs_receiver_message)
+        rs_receiver_messageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Notice.internal_static_rs_receiver_message_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Notice.internal_static_rs_receiver_message_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rs_receiver_message.class, Builder.class);
+      }
+
+      // Construct using Notice.rs_receiver_message.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        rsText_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Notice.internal_static_rs_receiver_message_descriptor;
+      }
+
+      public rs_receiver_message getDefaultInstanceForType() {
+        return rs_receiver_message.getDefaultInstance();
+      }
+
+      public rs_receiver_message build() {
+        rs_receiver_message result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rs_receiver_message buildPartial() {
+        rs_receiver_message result = new rs_receiver_message(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.rsText_ = rsText_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rs_receiver_message) {
+          return mergeFrom((rs_receiver_message)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rs_receiver_message other) {
+        if (other == rs_receiver_message.getDefaultInstance()) return this;
+        if (other.hasRsText()) {
+          bitField0_ |= 0x00000001;
+          rsText_ = other.rsText_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasRsText()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rs_receiver_message parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rs_receiver_message) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private Object rsText_ = "";
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public boolean hasRsText() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public String getRsText() {
+        Object ref = rsText_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            rsText_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRsTextBytes() {
+        Object ref = rsText_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          rsText_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public Builder setRsText(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        rsText_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public Builder clearRsText() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        rsText_ = getDefaultInstance().getRsText();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string rs_text = 1;</code>
+       */
+      public Builder setRsTextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        rsText_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rs_receiver_message)
+    }
+
+    static {
+      defaultInstance = new rs_receiver_message(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rs_receiver_message)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_rq_game_changeDirection_descriptor;
+    internal_static_rq_util_heartbeat_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_rq_game_changeDirection_fieldAccessorTable;
+      internal_static_rq_util_heartbeat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rs_util_heartbeat_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rs_util_heartbeat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rq_send_message_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rq_send_message_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rs_receiver_message_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rs_receiver_message_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -590,8 +1813,11 @@ public final class Notice {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\014notice.proto\"9\n\027rq_game_changeDirectio" +
-      "n\022\013\n\003uid\030\001 \002(\t\022\021\n\tdirection\030\002 \002(\002"
+      "\n\014notice.proto\"&\n\021rq_util_heartbeat\022\021\n\tk" +
+      "eepAlive\030\001 \002(\005\"!\n\021rs_util_heartbeat\022\014\n\004c" +
+      "ode\030\001 \002(\005\"\"\n\017rq_send_message\022\017\n\007rq_text\030" +
+      "\001 \002(\t\"&\n\023rs_receiver_message\022\017\n\007rs_text\030" +
+      "\001 \002(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -605,12 +1831,30 @@ public final class Notice {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_rq_game_changeDirection_descriptor =
+    internal_static_rq_util_heartbeat_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_rq_game_changeDirection_fieldAccessorTable = new
+    internal_static_rq_util_heartbeat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_rq_game_changeDirection_descriptor,
-        new String[] { "Uid", "Direction", });
+        internal_static_rq_util_heartbeat_descriptor,
+        new String[] { "KeepAlive", });
+    internal_static_rs_util_heartbeat_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_rs_util_heartbeat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rs_util_heartbeat_descriptor,
+        new String[] { "Code", });
+    internal_static_rq_send_message_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_rq_send_message_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rq_send_message_descriptor,
+        new String[] { "RqText", });
+    internal_static_rs_receiver_message_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_rs_receiver_message_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rs_receiver_message_descriptor,
+        new String[] { "RsText", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
