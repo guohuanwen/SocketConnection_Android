@@ -212,6 +212,16 @@ public class SenderView extends LinearLayout implements SenderInterface{
 
     }
 
+    public boolean isBoard(){
+        if (emojiBoard.getVisibility() == View.VISIBLE){
+            return true;
+        }
+        if (funBoard.getVisibility() == View.VISIBLE){
+            return true;
+        }
+        return false;
+    }
+
     public void showSend(){
         sendTv.setText("发送");
     }

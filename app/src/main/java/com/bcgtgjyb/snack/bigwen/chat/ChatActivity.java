@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
 
@@ -37,7 +38,7 @@ public class ChatActivity extends Activity {
     private BroadcastReceiver mBroadcastReceiver;
     private GameThread gameThread;
     private ListView chatList;
-//    private EditText editText;
+    //    private EditText editText;
 //    private Button button;
     private ChatAdapter mChatAdapter;
     public static String RESENDACTION = "GameActivity_ReSend";
@@ -84,13 +85,13 @@ public class ChatActivity extends Activity {
         chatList.setAdapter(mChatAdapter);
 
         List objects = BwSqlUtil.getInstance().loadObject(new BaseMessage());
-        List<BaseMessage> baseMessage = (List<BaseMessage>)objects ;
-        if (baseMessage != null){
+        List<BaseMessage> baseMessage = (List<BaseMessage>) objects;
+        if (baseMessage != null) {
             mChatAdapter.setData(baseMessage);
         }
     }
 
-    private void getEdit(){
+    private void getEdit() {
 
     }
 
@@ -98,12 +99,12 @@ public class ChatActivity extends Activity {
         if ("".equals(text)) {
             return;
         }
-        BaseMessage bm = MessageUtil.makeTextMessage(text, User.uid, ServiceUser.uid, 0,0);
-        PacketSender.sendMessage(gameThread,bm, new SendCallback() {
+        BaseMessage bm = MessageUtil.makeTextMessage(text, User.uid, ServiceUser.uid, 0, 0);
+        PacketSender.sendMessage(gameThread, bm, new SendCallback() {
             @Override
             public void onSuccess() {
                 senderView.clearEdit();
-                BaseMessage bm = MessageUtil.makeTextMessage(text, User.uid, ServiceUser.uid, 0,1);
+                BaseMessage bm = MessageUtil.makeTextMessage(text, User.uid, ServiceUser.uid, 0, 1);
                 BwSqlUtil.getInstance().saveObject(bm);
                 mChatAdapter.addMessage(bm);
             }
@@ -111,7 +112,7 @@ public class ChatActivity extends Activity {
             @Override
             public void onFailed(Exception e) {
                 senderView.clearEdit();
-                BaseMessage baseMessage = MessageUtil.makeTextMessage(text,User.uid, ServiceUser.uid, 0,0);
+                BaseMessage baseMessage = MessageUtil.makeTextMessage(text, User.uid, ServiceUser.uid, 0, 0);
                 BwSqlUtil.getInstance().saveObject(baseMessage);
                 mChatAdapter.addMessage(baseMessage);
             }
@@ -119,7 +120,7 @@ public class ChatActivity extends Activity {
     }
 
     private void reSendText(final BaseMessage baseMessage) {
-        PacketSender.sendMessage(gameThread, baseMessage.chat_text, User.uid, ServiceUser.uid,new SendCallback() {
+        PacketSender.sendMessage(gameThread, baseMessage.chat_text, User.uid, ServiceUser.uid, new SendCallback() {
             @Override
             public void onSuccess() {
                 baseMessage.isSendSuccess = 1;
@@ -134,10 +135,10 @@ public class ChatActivity extends Activity {
         });
     }
 
-    public void reSend(int p){
+    public void reSend(int p) {
         Log.i(TAG, "reSend: ");
-        BaseMessage baseMessage = (BaseMessage)mChatAdapter.getItem(p);
-        if (baseMessage.type == 0){
+        BaseMessage baseMessage = (BaseMessage) mChatAdapter.getItem(p);
+        if (baseMessage.type == 0) {
             reSendText(baseMessage);
         }
     }
@@ -164,7 +165,7 @@ public class ChatActivity extends Activity {
                 switch (intent.getAction()) {
                     //重发
                     case "GameActivity_ReSend":
-                        int p = intent.getIntExtra("position",-1);
+                        int p = intent.getIntExtra("position", -1);
                         reSend(p);
                         break;
                     case "rs_util_heartbeat":
@@ -176,7 +177,7 @@ public class ChatActivity extends Activity {
                         Bundle b = intent.getExtras();
                         Notice.rs_receiver_message rq = (Notice.rs_receiver_message) b.get("rs_receiver_message");
 //                        ToastUtil.show("服务器的heart:"+rq.getRsText());
-                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(), rq.getSendid(), rq.getReceiverid(), 0,1,rq.getTime());
+                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(), rq.getSendid(), rq.getReceiverid(), 0, 1, rq.getTime());
                         mChatAdapter.addMessage(baseMessage);
                         break;
                 }
@@ -203,9 +204,7 @@ public class ChatActivity extends Activity {
     }
 
 
-
-
-    private void initKeyBoard(){
+    private void initKeyBoard() {
         final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
         keyBoardListener = new KeyBoardListener(this, new KeyBoardListener.KeyBoradCallback() {
             @Override
@@ -223,9 +222,23 @@ public class ChatActivity extends Activity {
     }
 
     @SuppressLint("NewApi")
-    private void removeGlobal(){
+    private void removeGlobal() {
         final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
         rootView.getViewTreeObserver().removeOnGlobalLayoutListener(keyBoardListener);
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (senderView.isBoard()) {
+                senderView.closeBoard();
+                return false;
+            } else {
+                return super.onKeyDown(keyCode, event);
+            }
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
 }
