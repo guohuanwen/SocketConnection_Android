@@ -8,15 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-    <EditText
-        android:id="@+id/activity_game_edit"
-        android:layout_margin="8dp"
+    <com.bcgtgjyb.snack.bigwen.game.view.SenderView
+        android:id="@+id/activity_game_sender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/activity_game_send"
-        android:text="发送"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+    </com.bcgtgjyb.snack.bigwen.game.view.SenderView>
 </LinearLayout>

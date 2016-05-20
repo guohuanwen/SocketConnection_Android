@@ -1,5 +1,6 @@
 package com.bcgtgjyb.snack.bigwen.game;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,8 +9,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.bcgtgjyb.snack.R;
@@ -19,7 +18,9 @@ import com.bcgtgjyb.snack.bigwen.game.tcp.PacketSender;
 import com.bcgtgjyb.snack.bigwen.game.tcp.PacketType;
 import com.bcgtgjyb.snack.bigwen.game.tcp.SendCallback;
 import com.bcgtgjyb.snack.bigwen.game.view.ChatAdapter;
+import com.bcgtgjyb.snack.bigwen.game.view.KeyBoardListener;
 import com.bcgtgjyb.snack.bigwen.game.view.MessageUtil;
+import com.bcgtgjyb.snack.bigwen.game.view.SenderView;
 import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
 import com.bcgtgjyb.snack.bigwen.tool.ToastUtil;
 
@@ -31,29 +32,34 @@ public class GameActivity extends Activity {
     private BroadcastReceiver mBroadcastReceiver;
     private GameThread gameThread;
     private ListView chatList;
-    private EditText editText;
-    private Button button;
+//    private EditText editText;
+//    private Button button;
     private ChatAdapter mChatAdapter;
     public static String RESENDACTION = "GameActivity_ReSend";
     private String TAG = GameActivity.class.getSimpleName();
+    private SenderView senderView;
+    private KeyBoardListener keyBoardListener = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         chatList = (ListView) findViewById(R.id.activity_game_chat);
-        editText = (EditText) findViewById(R.id.activity_game_edit);
-        button = (Button) findViewById(R.id.activity_game_send);
+//        editText = (EditText) findViewById(R.id.activity_game_edit);
+//        button = (Button) findViewById(R.id.activity_game_send);
+        senderView = (SenderView) findViewById(R.id.activity_game_sender);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        senderView.setSenderListener(new SenderView.SenderListener() {
             @Override
-            public void onClick(View view) {
-                sendText(editText.getText().toString());
+            public void sendText(String text) {
+                sendChatText(text);
             }
         });
 
+
         initBroadcast();
         initListView();
+        initKeyBoard();
 
         gameThread = new GameThread("192.168.1.233", 7850);
         gameThread.start();
@@ -76,21 +82,21 @@ public class GameActivity extends Activity {
 
     }
 
-    private void sendText(final String text) {
+    private void sendChatText(final String text) {
         if ("".equals(text)) {
             return;
         }
         PacketSender.sendMessage(gameThread, text, new SendCallback() {
             @Override
             public void onSuccess() {
-                editText.setText("");
+                senderView.clearEdit();
                 BaseMessage baseMessage = MessageUtil.makeTextMessage(text, 0, 1, 0,true);
                 mChatAdapter.addMessage(baseMessage);
             }
 
             @Override
             public void onFailed(Exception e) {
-                editText.setText("");
+                senderView.clearEdit();
                 BaseMessage baseMessage = MessageUtil.makeTextMessage(text, 0, 1, 0,false);
                 mChatAdapter.addMessage(baseMessage);
             }
@@ -173,7 +179,31 @@ public class GameActivity extends Activity {
         unregisterReceiver(mBroadcastReceiver);
         gameThread.stopConnect();
 
+        removeGlobal();
+    }
 
+
+    private void initKeyBoard(){
+        final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        keyBoardListener = new KeyBoardListener(this, new KeyBoardListener.KeyBoradCallback() {
+            @Override
+            public void hideKeyBoard() {
+                Log.i(TAG, "hideKeyBoard: ");
+            }
+
+            @Override
+            public void showKeyBoard() {
+                Log.i(TAG, "showKeyBoard: ");
+                senderView.closeBoard();
+            }
+        });
+        rootView.getViewTreeObserver().addOnGlobalLayoutListener(keyBoardListener);
+    }
+
+    @SuppressLint("NewApi")
+    private void removeGlobal(){
+        final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        rootView.getViewTreeObserver().removeOnGlobalLayoutListener(keyBoardListener);
     }
 
 }
