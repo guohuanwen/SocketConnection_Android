@@ -833,6 +833,33 @@ public final class Notice {
      */
     com.google.protobuf.ByteString
         getRqTextBytes();
+
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    boolean hasSendid();
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    int getSendid();
+
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    boolean hasReceiverid();
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    int getReceiverid();
+
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    boolean hasTime();
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    long getTime();
   }
   /**
    * Protobuf type {@code rq_send_message}
@@ -890,6 +917,21 @@ public final class Notice {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
               rqText_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              sendid_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              receiverid_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              time_ = input.readInt64();
               break;
             }
           }
@@ -974,8 +1016,56 @@ public final class Notice {
       }
     }
 
+    public static final int SENDID_FIELD_NUMBER = 2;
+    private int sendid_;
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    public boolean hasSendid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    public int getSendid() {
+      return sendid_;
+    }
+
+    public static final int RECEIVERID_FIELD_NUMBER = 3;
+    private int receiverid_;
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    public boolean hasReceiverid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    public int getReceiverid() {
+      return receiverid_;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 4;
+    private long time_;
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    public boolean hasTime() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    public long getTime() {
+      return time_;
+    }
+
     private void initFields() {
       rqText_ = "";
+      sendid_ = 0;
+      receiverid_ = 0;
+      time_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -984,6 +1074,18 @@ public final class Notice {
       if (isInitialized == 0) return false;
 
       if (!hasRqText()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSendid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReceiverid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTime()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -997,6 +1099,15 @@ public final class Notice {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getRqTextBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, sendid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, receiverid_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, time_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1009,6 +1120,18 @@ public final class Notice {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getRqTextBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, sendid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, receiverid_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, time_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1129,6 +1252,12 @@ public final class Notice {
         super.clear();
         rqText_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        sendid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        receiverid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        time_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1161,6 +1290,18 @@ public final class Notice {
           to_bitField0_ |= 0x00000001;
         }
         result.rqText_ = rqText_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.sendid_ = sendid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.receiverid_ = receiverid_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.time_ = time_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1182,12 +1323,33 @@ public final class Notice {
           rqText_ = other.rqText_;
           onChanged();
         }
+        if (other.hasSendid()) {
+          setSendid(other.getSendid());
+        }
+        if (other.hasReceiverid()) {
+          setReceiverid(other.getReceiverid());
+        }
+        if (other.hasTime()) {
+          setTime(other.getTime());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasRqText()) {
+          
+          return false;
+        }
+        if (!hasSendid()) {
+          
+          return false;
+        }
+        if (!hasReceiverid()) {
+          
+          return false;
+        }
+        if (!hasTime()) {
           
           return false;
         }
@@ -1289,6 +1451,102 @@ public final class Notice {
         return this;
       }
 
+      private int sendid_ ;
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public boolean hasSendid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public int getSendid() {
+        return sendid_;
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public Builder setSendid(int value) {
+        bitField0_ |= 0x00000002;
+        sendid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public Builder clearSendid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sendid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int receiverid_ ;
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public boolean hasReceiverid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public int getReceiverid() {
+        return receiverid_;
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public Builder setReceiverid(int value) {
+        bitField0_ |= 0x00000004;
+        receiverid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public Builder clearReceiverid() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        receiverid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long time_ ;
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public boolean hasTime() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public Builder setTime(long value) {
+        bitField0_ |= 0x00000008;
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public Builder clearTime() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:rq_send_message)
     }
 
@@ -1317,6 +1575,33 @@ public final class Notice {
      */
     com.google.protobuf.ByteString
         getRsTextBytes();
+
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    boolean hasSendid();
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    int getSendid();
+
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    boolean hasReceiverid();
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    int getReceiverid();
+
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    boolean hasTime();
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    long getTime();
   }
   /**
    * Protobuf type {@code rs_receiver_message}
@@ -1374,6 +1659,21 @@ public final class Notice {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
               rsText_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              sendid_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              receiverid_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              time_ = input.readInt64();
               break;
             }
           }
@@ -1458,8 +1758,56 @@ public final class Notice {
       }
     }
 
+    public static final int SENDID_FIELD_NUMBER = 2;
+    private int sendid_;
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    public boolean hasSendid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 sendid = 2;</code>
+     */
+    public int getSendid() {
+      return sendid_;
+    }
+
+    public static final int RECEIVERID_FIELD_NUMBER = 3;
+    private int receiverid_;
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    public boolean hasReceiverid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 receiverid = 3;</code>
+     */
+    public int getReceiverid() {
+      return receiverid_;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 4;
+    private long time_;
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    public boolean hasTime() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 time = 4;</code>
+     */
+    public long getTime() {
+      return time_;
+    }
+
     private void initFields() {
       rsText_ = "";
+      sendid_ = 0;
+      receiverid_ = 0;
+      time_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1468,6 +1816,18 @@ public final class Notice {
       if (isInitialized == 0) return false;
 
       if (!hasRsText()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSendid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReceiverid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTime()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1481,6 +1841,15 @@ public final class Notice {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getRsTextBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, sendid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, receiverid_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, time_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1493,6 +1862,18 @@ public final class Notice {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getRsTextBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, sendid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, receiverid_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, time_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1613,6 +1994,12 @@ public final class Notice {
         super.clear();
         rsText_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        sendid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        receiverid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        time_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1645,6 +2032,18 @@ public final class Notice {
           to_bitField0_ |= 0x00000001;
         }
         result.rsText_ = rsText_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.sendid_ = sendid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.receiverid_ = receiverid_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.time_ = time_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1666,12 +2065,33 @@ public final class Notice {
           rsText_ = other.rsText_;
           onChanged();
         }
+        if (other.hasSendid()) {
+          setSendid(other.getSendid());
+        }
+        if (other.hasReceiverid()) {
+          setReceiverid(other.getReceiverid());
+        }
+        if (other.hasTime()) {
+          setTime(other.getTime());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasRsText()) {
+          
+          return false;
+        }
+        if (!hasSendid()) {
+          
+          return false;
+        }
+        if (!hasReceiverid()) {
+          
+          return false;
+        }
+        if (!hasTime()) {
           
           return false;
         }
@@ -1773,6 +2193,102 @@ public final class Notice {
         return this;
       }
 
+      private int sendid_ ;
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public boolean hasSendid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public int getSendid() {
+        return sendid_;
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public Builder setSendid(int value) {
+        bitField0_ |= 0x00000002;
+        sendid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 sendid = 2;</code>
+       */
+      public Builder clearSendid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sendid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int receiverid_ ;
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public boolean hasReceiverid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public int getReceiverid() {
+        return receiverid_;
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public Builder setReceiverid(int value) {
+        bitField0_ |= 0x00000004;
+        receiverid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 receiverid = 3;</code>
+       */
+      public Builder clearReceiverid() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        receiverid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long time_ ;
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public boolean hasTime() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public Builder setTime(long value) {
+        bitField0_ |= 0x00000008;
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 time = 4;</code>
+       */
+      public Builder clearTime() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:rs_receiver_message)
     }
 
@@ -1815,9 +2331,11 @@ public final class Notice {
     String[] descriptorData = {
       "\n\014notice.proto\"&\n\021rq_util_heartbeat\022\021\n\tk" +
       "eepAlive\030\001 \002(\005\"!\n\021rs_util_heartbeat\022\014\n\004c" +
-      "ode\030\001 \002(\005\"\"\n\017rq_send_message\022\017\n\007rq_text\030" +
-      "\001 \002(\t\"&\n\023rs_receiver_message\022\017\n\007rs_text\030" +
-      "\001 \002(\t"
+      "ode\030\001 \002(\005\"T\n\017rq_send_message\022\017\n\007rq_text\030" +
+      "\001 \002(\t\022\016\n\006sendid\030\002 \002(\005\022\022\n\nreceiverid\030\003 \002(" +
+      "\005\022\014\n\004time\030\004 \002(\003\"X\n\023rs_receiver_message\022\017" +
+      "\n\007rs_text\030\001 \002(\t\022\016\n\006sendid\030\002 \002(\005\022\022\n\nrecei" +
+      "verid\030\003 \002(\005\022\014\n\004time\030\004 \002(\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1848,13 +2366,13 @@ public final class Notice {
     internal_static_rq_send_message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rq_send_message_descriptor,
-        new String[] { "RqText", });
+        new String[] { "RqText", "Sendid", "Receiverid", "Time", });
     internal_static_rs_receiver_message_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_rs_receiver_message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rs_receiver_message_descriptor,
-        new String[] { "RsText", });
+        new String[] { "RsText", "Sendid", "Receiverid", "Time", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
