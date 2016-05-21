@@ -18,6 +18,7 @@ public class SettingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activtiy_setting);
         editText = (EditText) findViewById(R.id.activity_setting_et);
+        editText.setText(SharePreUtil.getInstance(this).getInt("uid")+"");
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bcgtgjyb.snack.R;
+import com.bcgtgjyb.snack.bigwen.base.MyApplication;
 import com.bcgtgjyb.snack.bigwen.chat.bean.BaseMessage;
 import com.bcgtgjyb.snack.bigwen.chat.bean.ServiceUser;
 import com.bcgtgjyb.snack.bigwen.chat.bean.User;
@@ -49,6 +50,7 @@ public class ChatActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "onCreate: ");
         setContentView(R.layout.activity_game);
         chatList = (ListView) findViewById(R.id.activity_game_chat);
 //        editText = (EditText) findViewById(R.id.activity_game_edit);
@@ -63,22 +65,27 @@ public class ChatActivity extends Activity {
         });
 
 
+        initService();
         initBroadcast();
         initListView();
         initKeyBoard();
         initID();
 
-        gameThread = new GameThread("192.168.1.233", 7850);
-        gameThread.start();
+    }
 
+    private void initService() {
+        MyApplication.getMyApplication().doBindService(new MyApplication.BindCallback() {
+            @Override
+            public void onFinish() {
+                gameThread = MyApplication.getMyApplication().getGameServer().getGameThread();
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {
                 initSender();
             }
         }).start();
-
-
     }
 
     private void initID() {
@@ -205,7 +212,6 @@ public class ChatActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver);
-        gameThread.stopConnect();
         removeGlobal();
     }
 

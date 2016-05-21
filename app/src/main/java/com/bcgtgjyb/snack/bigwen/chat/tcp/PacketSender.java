@@ -12,13 +12,15 @@ import java.nio.ByteBuffer;
  * Created by bigwen on 2016/5/15.
  */
 public class PacketSender {
+
     private static String TAG = PacketType.class.getSimpleName();
+
     public static void sendHeartbeat(TcpOperate tcpOperate) throws Exception{
         Log.i(TAG, "sendHeartbeat: ");
         Notice.rq_util_heartbeat rq_util_heartbeat = Notice.rq_util_heartbeat.newBuilder()
                 .setKeepAlive(1)
                 .build();
-        send(rq_util_heartbeat,0,tcpOperate,null);
+        send(rq_util_heartbeat, 0, tcpOperate, null);
     }
 
     public static void sendMessage(TcpOperate tcpOperate,BaseMessage baseMessage,SendCallback sendCallback)  {

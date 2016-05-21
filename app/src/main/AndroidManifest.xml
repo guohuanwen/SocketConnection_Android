@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".bigwen.chat.SettingActivity"></activity>
+        <service android:name=".bigwen.chat.GameServer"></service>
     </application>
 
 </manifest>
