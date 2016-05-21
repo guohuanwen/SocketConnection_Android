@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bcgtgjyb.snack.R;
@@ -65,6 +66,7 @@ public class ChatActivity extends Activity {
         initBroadcast();
         initListView();
         initKeyBoard();
+        initID();
 
         gameThread = new GameThread("192.168.1.233", 7850);
         gameThread.start();
@@ -78,6 +80,16 @@ public class ChatActivity extends Activity {
 
 
     }
+
+    private void initID() {
+        chatList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(ChatActivity.this,SettingActivity.class));
+            }
+        });
+    }
+
 
     private void initListView() {
         mChatAdapter = new ChatAdapter(this);
@@ -172,11 +184,11 @@ public class ChatActivity extends Activity {
                         Notice.rs_util_heartbeat rs = (Notice.rs_util_heartbeat) bundle.get("rs_util_heartbeat");
 //                        ToastUtil.show("服务器的heart:" + rs.getCode());
                         break;
-                    case "rs_receiver_message":
+                    case "chat_message":
                         Bundle b = intent.getExtras();
-                        Notice.rs_receiver_message rq = (Notice.rs_receiver_message) b.get("rs_receiver_message");
+                        Notice.chat_message rq = (Notice.chat_message) b.get("chat_message");
 //                        ToastUtil.show("服务器的heart:"+rq.getRsText());
-                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRsText(), rq.getSendid(), rq.getReceiverid(), 0, 1, rq.getTime());
+                        BaseMessage baseMessage = MessageUtil.makeTextMessage(rq.getRqText(), rq.getSendid(), rq.getReceiverid(), 0, 1, rq.getTime());
                         mChatAdapter.addMessage(baseMessage);
                         break;
                 }
@@ -184,7 +196,7 @@ public class ChatActivity extends Activity {
         };
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PacketType.getInstance().getPocketName(1));
-        intentFilter.addAction(PacketType.getInstance().getPocketName(3));
+        intentFilter.addAction(PacketType.getInstance().getPocketName(2));
         intentFilter.addAction(RESENDACTION);
         registerReceiver(mBroadcastReceiver, intentFilter);
     }

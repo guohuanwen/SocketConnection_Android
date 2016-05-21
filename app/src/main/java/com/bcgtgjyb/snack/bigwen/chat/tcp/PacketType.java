@@ -26,7 +26,7 @@ public class PacketType {
     }
 
     private PacketType() {
-        pocketTypes = new String[]{"rq_util_heartbeat", "rs_util_heartbeat","rq_send_message","rs_receiver_message"};
+        pocketTypes = new String[]{"rq_util_heartbeat", "rs_util_heartbeat","chat_message"};
         for (int i = 0; i < pocketTypes.length; i++) {
             pocketToType.put(pocketTypes[i], i);
         }

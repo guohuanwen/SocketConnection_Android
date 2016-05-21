@@ -22,7 +22,7 @@ public class PacketSender {
     }
 
     public static void sendMessage(TcpOperate tcpOperate,BaseMessage baseMessage,SendCallback sendCallback)  {
-        Notice.rq_send_message rq_send_message = Notice.rq_send_message.newBuilder()
+        Notice.chat_message rq_send_message = Notice.chat_message.newBuilder()
                 .setReceiverid(baseMessage.receiverId)
                 .setSendid(baseMessage.sendId)
                 .setRqText(baseMessage.chat_text)
@@ -32,7 +32,7 @@ public class PacketSender {
     }
 
     public static void sendMessage(TcpOperate tcpOperate,String text,int send,int receiver,SendCallback sendCallback)  {
-        Notice.rq_send_message rq_send_message = Notice.rq_send_message.newBuilder()
+        Notice.chat_message rq_send_message = Notice.chat_message.newBuilder()
                 .setReceiverid(receiver)
                 .setSendid(send)
                 .setRqText(text)

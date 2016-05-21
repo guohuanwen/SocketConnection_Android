@@ -34,8 +34,8 @@ public class PacketParse {
                 sendBroadcast(intent);
                 break;
             //接收聊天文字消息
-            case 3:
-                Notice.rs_receiver_message rs_receiver_message = Notice.rs_receiver_message.parseFrom(bytes);
+            case 2:
+                Notice.chat_message rs_receiver_message = Notice.chat_message.parseFrom(bytes);
                 Intent intent1 = new Intent();
                 String action = rs_receiver_message.getClass().getSimpleName();
                 intent1.setAction(action);

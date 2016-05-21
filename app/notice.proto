@@ -1,4 +1,3 @@
 message rq_util_heartbeat { required int32 keepAlive=1; }
 message rs_util_heartbeat { required int32 code=1; }
-message rq_send_message { required string rq_text=1; required int32 sendid=2; required int32 receiverid=3; required int64 time=4; }
-message rs_receiver_message { required string rs_text=1; required int32 sendid=2; required int32  receiverid=3; required int64 time=4; }
+message chat_message { required string rq_text=1; required int32 sendid=2; required int32 receiverid=3; required int64 time=4; }

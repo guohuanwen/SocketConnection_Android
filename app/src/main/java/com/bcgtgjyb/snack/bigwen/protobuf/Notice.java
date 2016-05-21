@@ -816,8 +816,8 @@ public final class Notice {
     // @@protoc_insertion_point(class_scope:rs_util_heartbeat)
   }
 
-  public interface rq_send_messageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:rq_send_message)
+  public interface chat_messageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:chat_message)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -862,25 +862,25 @@ public final class Notice {
     long getTime();
   }
   /**
-   * Protobuf type {@code rq_send_message}
+   * Protobuf type {@code chat_message}
    */
-  public static final class rq_send_message extends
+  public static final class chat_message extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:rq_send_message)
-      rq_send_messageOrBuilder {
-    // Use rq_send_message.newBuilder() to construct.
-    private rq_send_message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:chat_message)
+      chat_messageOrBuilder {
+    // Use chat_message.newBuilder() to construct.
+    private chat_message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private rq_send_message(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private chat_message(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final rq_send_message defaultInstance;
-    public static rq_send_message getDefaultInstance() {
+    private static final chat_message defaultInstance;
+    public static chat_message getDefaultInstance() {
       return defaultInstance;
     }
 
-    public rq_send_message getDefaultInstanceForType() {
+    public chat_message getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -890,7 +890,7 @@ public final class Notice {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private rq_send_message(
+    private chat_message(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -948,28 +948,28 @@ public final class Notice {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Notice.internal_static_rq_send_message_descriptor;
+      return Notice.internal_static_chat_message_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Notice.internal_static_rq_send_message_fieldAccessorTable
+      return Notice.internal_static_chat_message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              rq_send_message.class, Builder.class);
+              chat_message.class, Builder.class);
     }
 
-    public static com.google.protobuf.Parser<rq_send_message> PARSER =
-        new com.google.protobuf.AbstractParser<rq_send_message>() {
-      public rq_send_message parsePartialFrom(
+    public static com.google.protobuf.Parser<chat_message> PARSER =
+        new com.google.protobuf.AbstractParser<chat_message>() {
+      public chat_message parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new rq_send_message(input, extensionRegistry);
+        return new chat_message(input, extensionRegistry);
       }
     };
 
     @Override
-    public com.google.protobuf.Parser<rq_send_message> getParserForType() {
+    public com.google.protobuf.Parser<chat_message> getParserForType() {
       return PARSER;
     }
 
@@ -1145,53 +1145,53 @@ public final class Notice {
       return super.writeReplace();
     }
 
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rq_send_message parseFrom(byte[] data)
+    public static chat_message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rq_send_message parseFrom(java.io.InputStream input)
+    public static chat_message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static rq_send_message parseDelimitedFrom(java.io.InputStream input)
+    public static chat_message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static rq_send_message parseDelimitedFrom(
+    public static chat_message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rq_send_message parseFrom(
+    public static chat_message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1200,7 +1200,7 @@ public final class Notice {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(rq_send_message prototype) {
+    public static Builder newBuilder(chat_message prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1212,25 +1212,25 @@ public final class Notice {
       return builder;
     }
     /**
-     * Protobuf type {@code rq_send_message}
+     * Protobuf type {@code chat_message}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:rq_send_message)
-        rq_send_messageOrBuilder {
+        // @@protoc_insertion_point(builder_implements:chat_message)
+        chat_messageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Notice.internal_static_rq_send_message_descriptor;
+        return Notice.internal_static_chat_message_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Notice.internal_static_rq_send_message_fieldAccessorTable
+        return Notice.internal_static_chat_message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                rq_send_message.class, Builder.class);
+                chat_message.class, Builder.class);
       }
 
-      // Construct using Notice.rq_send_message.newBuilder()
+      // Construct using Notice.chat_message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1267,23 +1267,23 @@ public final class Notice {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Notice.internal_static_rq_send_message_descriptor;
+        return Notice.internal_static_chat_message_descriptor;
       }
 
-      public rq_send_message getDefaultInstanceForType() {
-        return rq_send_message.getDefaultInstance();
+      public chat_message getDefaultInstanceForType() {
+        return chat_message.getDefaultInstance();
       }
 
-      public rq_send_message build() {
-        rq_send_message result = buildPartial();
+      public chat_message build() {
+        chat_message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public rq_send_message buildPartial() {
-        rq_send_message result = new rq_send_message(this);
+      public chat_message buildPartial() {
+        chat_message result = new chat_message(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1308,16 +1308,16 @@ public final class Notice {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof rq_send_message) {
-          return mergeFrom((rq_send_message)other);
+        if (other instanceof chat_message) {
+          return mergeFrom((chat_message)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(rq_send_message other) {
-        if (other == rq_send_message.getDefaultInstance()) return this;
+      public Builder mergeFrom(chat_message other) {
+        if (other == chat_message.getDefaultInstance()) return this;
         if (other.hasRqText()) {
           bitField0_ |= 0x00000001;
           rqText_ = other.rqText_;
@@ -1360,11 +1360,11 @@ public final class Notice {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        rq_send_message parsedMessage = null;
+        chat_message parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (rq_send_message) e.getUnfinishedMessage();
+          parsedMessage = (chat_message) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1547,757 +1547,15 @@ public final class Notice {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:rq_send_message)
+      // @@protoc_insertion_point(builder_scope:chat_message)
     }
 
     static {
-      defaultInstance = new rq_send_message(true);
+      defaultInstance = new chat_message(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:rq_send_message)
-  }
-
-  public interface rs_receiver_messageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:rs_receiver_message)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    boolean hasRsText();
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    String getRsText();
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getRsTextBytes();
-
-    /**
-     * <code>required int32 sendid = 2;</code>
-     */
-    boolean hasSendid();
-    /**
-     * <code>required int32 sendid = 2;</code>
-     */
-    int getSendid();
-
-    /**
-     * <code>required int32 receiverid = 3;</code>
-     */
-    boolean hasReceiverid();
-    /**
-     * <code>required int32 receiverid = 3;</code>
-     */
-    int getReceiverid();
-
-    /**
-     * <code>required int64 time = 4;</code>
-     */
-    boolean hasTime();
-    /**
-     * <code>required int64 time = 4;</code>
-     */
-    long getTime();
-  }
-  /**
-   * Protobuf type {@code rs_receiver_message}
-   */
-  public static final class rs_receiver_message extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:rs_receiver_message)
-      rs_receiver_messageOrBuilder {
-    // Use rs_receiver_message.newBuilder() to construct.
-    private rs_receiver_message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private rs_receiver_message(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final rs_receiver_message defaultInstance;
-    public static rs_receiver_message getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public rs_receiver_message getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private rs_receiver_message(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              rsText_ = bs;
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              sendid_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              receiverid_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              time_ = input.readInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return Notice.internal_static_rs_receiver_message_descriptor;
-    }
-
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return Notice.internal_static_rs_receiver_message_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              rs_receiver_message.class, Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<rs_receiver_message> PARSER =
-        new com.google.protobuf.AbstractParser<rs_receiver_message>() {
-      public rs_receiver_message parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new rs_receiver_message(input, extensionRegistry);
-      }
-    };
-
-    @Override
-    public com.google.protobuf.Parser<rs_receiver_message> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    public static final int RS_TEXT_FIELD_NUMBER = 1;
-    private Object rsText_;
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    public boolean hasRsText() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    public String getRsText() {
-      Object ref = rsText_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          rsText_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string rs_text = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRsTextBytes() {
-      Object ref = rsText_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        rsText_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SENDID_FIELD_NUMBER = 2;
-    private int sendid_;
-    /**
-     * <code>required int32 sendid = 2;</code>
-     */
-    public boolean hasSendid() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 sendid = 2;</code>
-     */
-    public int getSendid() {
-      return sendid_;
-    }
-
-    public static final int RECEIVERID_FIELD_NUMBER = 3;
-    private int receiverid_;
-    /**
-     * <code>required int32 receiverid = 3;</code>
-     */
-    public boolean hasReceiverid() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required int32 receiverid = 3;</code>
-     */
-    public int getReceiverid() {
-      return receiverid_;
-    }
-
-    public static final int TIME_FIELD_NUMBER = 4;
-    private long time_;
-    /**
-     * <code>required int64 time = 4;</code>
-     */
-    public boolean hasTime() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>required int64 time = 4;</code>
-     */
-    public long getTime() {
-      return time_;
-    }
-
-    private void initFields() {
-      rsText_ = "";
-      sendid_ = 0;
-      receiverid_ = 0;
-      time_ = 0L;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasRsText()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasSendid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasReceiverid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasTime()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getRsTextBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, sendid_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, receiverid_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt64(4, time_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getRsTextBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, sendid_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, receiverid_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, time_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @Override
-    protected Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static rs_receiver_message parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static rs_receiver_message parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static rs_receiver_message parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static rs_receiver_message parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static rs_receiver_message parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static rs_receiver_message parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static rs_receiver_message parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static rs_receiver_message parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static rs_receiver_message parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static rs_receiver_message parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(rs_receiver_message prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code rs_receiver_message}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:rs_receiver_message)
-        rs_receiver_messageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return Notice.internal_static_rs_receiver_message_descriptor;
-      }
-
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return Notice.internal_static_rs_receiver_message_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                rs_receiver_message.class, Builder.class);
-      }
-
-      // Construct using Notice.rs_receiver_message.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        rsText_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        sendid_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        receiverid_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        time_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return Notice.internal_static_rs_receiver_message_descriptor;
-      }
-
-      public rs_receiver_message getDefaultInstanceForType() {
-        return rs_receiver_message.getDefaultInstance();
-      }
-
-      public rs_receiver_message build() {
-        rs_receiver_message result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public rs_receiver_message buildPartial() {
-        rs_receiver_message result = new rs_receiver_message(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.rsText_ = rsText_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.sendid_ = sendid_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.receiverid_ = receiverid_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.time_ = time_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof rs_receiver_message) {
-          return mergeFrom((rs_receiver_message)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(rs_receiver_message other) {
-        if (other == rs_receiver_message.getDefaultInstance()) return this;
-        if (other.hasRsText()) {
-          bitField0_ |= 0x00000001;
-          rsText_ = other.rsText_;
-          onChanged();
-        }
-        if (other.hasSendid()) {
-          setSendid(other.getSendid());
-        }
-        if (other.hasReceiverid()) {
-          setReceiverid(other.getReceiverid());
-        }
-        if (other.hasTime()) {
-          setTime(other.getTime());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasRsText()) {
-          
-          return false;
-        }
-        if (!hasSendid()) {
-          
-          return false;
-        }
-        if (!hasReceiverid()) {
-          
-          return false;
-        }
-        if (!hasTime()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        rs_receiver_message parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (rs_receiver_message) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private Object rsText_ = "";
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public boolean hasRsText() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public String getRsText() {
-        Object ref = rsText_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            rsText_ = s;
-          }
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getRsTextBytes() {
-        Object ref = rsText_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          rsText_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public Builder setRsText(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        rsText_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public Builder clearRsText() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        rsText_ = getDefaultInstance().getRsText();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string rs_text = 1;</code>
-       */
-      public Builder setRsTextBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        rsText_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int sendid_ ;
-      /**
-       * <code>required int32 sendid = 2;</code>
-       */
-      public boolean hasSendid() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 sendid = 2;</code>
-       */
-      public int getSendid() {
-        return sendid_;
-      }
-      /**
-       * <code>required int32 sendid = 2;</code>
-       */
-      public Builder setSendid(int value) {
-        bitField0_ |= 0x00000002;
-        sendid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 sendid = 2;</code>
-       */
-      public Builder clearSendid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        sendid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int receiverid_ ;
-      /**
-       * <code>required int32 receiverid = 3;</code>
-       */
-      public boolean hasReceiverid() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required int32 receiverid = 3;</code>
-       */
-      public int getReceiverid() {
-        return receiverid_;
-      }
-      /**
-       * <code>required int32 receiverid = 3;</code>
-       */
-      public Builder setReceiverid(int value) {
-        bitField0_ |= 0x00000004;
-        receiverid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 receiverid = 3;</code>
-       */
-      public Builder clearReceiverid() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        receiverid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long time_ ;
-      /**
-       * <code>required int64 time = 4;</code>
-       */
-      public boolean hasTime() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required int64 time = 4;</code>
-       */
-      public long getTime() {
-        return time_;
-      }
-      /**
-       * <code>required int64 time = 4;</code>
-       */
-      public Builder setTime(long value) {
-        bitField0_ |= 0x00000008;
-        time_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int64 time = 4;</code>
-       */
-      public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        time_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:rs_receiver_message)
-    }
-
-    static {
-      defaultInstance = new rs_receiver_message(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:rs_receiver_message)
+    // @@protoc_insertion_point(class_scope:chat_message)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
@@ -2311,15 +1569,10 @@ public final class Notice {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rs_util_heartbeat_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_rq_send_message_descriptor;
+    internal_static_chat_message_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_rq_send_message_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_rs_receiver_message_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_rs_receiver_message_fieldAccessorTable;
+      internal_static_chat_message_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2331,11 +1584,9 @@ public final class Notice {
     String[] descriptorData = {
       "\n\014notice.proto\"&\n\021rq_util_heartbeat\022\021\n\tk" +
       "eepAlive\030\001 \002(\005\"!\n\021rs_util_heartbeat\022\014\n\004c" +
-      "ode\030\001 \002(\005\"T\n\017rq_send_message\022\017\n\007rq_text\030" +
-      "\001 \002(\t\022\016\n\006sendid\030\002 \002(\005\022\022\n\nreceiverid\030\003 \002(" +
-      "\005\022\014\n\004time\030\004 \002(\003\"X\n\023rs_receiver_message\022\017" +
-      "\n\007rs_text\030\001 \002(\t\022\016\n\006sendid\030\002 \002(\005\022\022\n\nrecei" +
-      "verid\030\003 \002(\005\022\014\n\004time\030\004 \002(\003"
+      "ode\030\001 \002(\005\"Q\n\014chat_message\022\017\n\007rq_text\030\001 \002" +
+      "(\t\022\016\n\006sendid\030\002 \002(\005\022\022\n\nreceiverid\030\003 \002(\005\022\014" +
+      "\n\004time\030\004 \002(\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2361,18 +1612,12 @@ public final class Notice {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rs_util_heartbeat_descriptor,
         new String[] { "Code", });
-    internal_static_rq_send_message_descriptor =
+    internal_static_chat_message_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_rq_send_message_fieldAccessorTable = new
+    internal_static_chat_message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_rq_send_message_descriptor,
+        internal_static_chat_message_descriptor,
         new String[] { "RqText", "Sendid", "Receiverid", "Time", });
-    internal_static_rs_receiver_message_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_rs_receiver_message_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_rs_receiver_message_descriptor,
-        new String[] { "RsText", "Sendid", "Receiverid", "Time", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
