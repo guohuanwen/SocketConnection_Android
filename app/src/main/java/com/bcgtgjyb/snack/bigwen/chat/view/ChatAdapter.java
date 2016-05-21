@@ -73,4 +73,8 @@ public class ChatAdapter extends BaseAdapter {
         return messages;
     }
 
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 }

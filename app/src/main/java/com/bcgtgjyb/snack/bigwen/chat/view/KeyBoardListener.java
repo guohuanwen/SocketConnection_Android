@@ -48,8 +48,13 @@ public class KeyBoardListener implements ViewTreeObserver.OnGlobalLayoutListener
 
     private boolean isKeyShown(Context context){
         final View rootView = ((Activity)context).getWindow().getDecorView().findViewById(android.R.id.content);
-        Log.i(TAG, "isKeyboardShown: "+"  "+rootView.getRootView().getHeight()+"  "+rootView.getBottom());
-        return rootView.getRootView().getHeight() != (rootView.getBottom() + ScreenUtil.getNavigationBarHeight());
+        Rect r = new Rect();
+        rootView.getWindowVisibleDisplayFrame(r);
+        DisplayMetrics dm = rootView.getResources().getDisplayMetrics();
+        int heightDiff = rootView.getBottom() - r.bottom;
+        Log.i(TAG, "isKeyboardShown:   "+heightDiff+"  "+rootView.getRootView().getHeight()+"  "+rootView.getBottom()+"   "+ScreenUtil.getNavigationBarHeight());
+        return heightDiff>0;
+//        return rootView.getRootView().getHeight() != (rootView.getBottom() + ScreenUtil.getNavigationBarHeight());
     }
 
 

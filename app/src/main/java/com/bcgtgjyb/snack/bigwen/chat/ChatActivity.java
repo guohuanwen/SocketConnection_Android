@@ -26,7 +26,6 @@ import com.bcgtgjyb.snack.bigwen.chat.view.MessageUtil;
 import com.bcgtgjyb.snack.bigwen.chat.view.SenderView;
 import com.bcgtgjyb.snack.bigwen.protobuf.Notice;
 import com.bcgtgjyb.snack.bigwen.sqlite.BwSqlUtil;
-import com.bcgtgjyb.snack.bigwen.tool.ToastUtil;
 
 import java.util.List;
 
@@ -171,7 +170,7 @@ public class ChatActivity extends Activity {
                     case "rs_util_heartbeat":
                         Bundle bundle = intent.getExtras();
                         Notice.rs_util_heartbeat rs = (Notice.rs_util_heartbeat) bundle.get("rs_util_heartbeat");
-                        ToastUtil.show("服务器的heart:" + rs.getCode());
+//                        ToastUtil.show("服务器的heart:" + rs.getCode());
                         break;
                     case "rs_receiver_message":
                         Bundle b = intent.getExtras();
@@ -204,22 +203,32 @@ public class ChatActivity extends Activity {
     }
 
 
+    private boolean isShowKeyBoard = false;
     private void initKeyBoard() {
         final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
         keyBoardListener = new KeyBoardListener(this, new KeyBoardListener.KeyBoradCallback() {
             @Override
             public void hideKeyBoard() {
                 Log.i(TAG, "hideKeyBoard: ");
+                if (isShowKeyBoard){
+                    isShowKeyBoard = false;
+                    senderView.closeBoard();
+                }
             }
 
             @Override
             public void showKeyBoard() {
                 Log.i(TAG, "showKeyBoard: ");
+                isShowKeyBoard = true;
                 senderView.closeBoard();
             }
         });
         rootView.getViewTreeObserver().addOnGlobalLayoutListener(keyBoardListener);
     }
+
+//    private void moveToLastOne(){
+//        chatList.setSelection(mChatAdapter.getCount()-1);
+//    }
 
     @SuppressLint("NewApi")
     private void removeGlobal() {
