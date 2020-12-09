@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Snack.iml" filepath="$PROJECT_DIR$/Snack.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lazylibrary/lazylibrary.iml" filepath="$PROJECT_DIR$/lazylibrary/lazylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SocketConnection_Android.iml" filepath="$PROJECT_DIR$/.idea/modules/SocketConnection_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SocketConnection_Android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SocketConnection_Android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lazylibrary/SocketConnection_Android.lazylibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/lazylibrary/SocketConnection_Android.lazylibrary.iml" />
     </modules>
   </component>
 </project>
