@@ -27,7 +27,7 @@ public class GameServer extends Service {
     public void onCreate() {
         super.onCreate();
         Log.i(TAG, "onCreate: ");
-        gameThread = new GameThread("192.168.1.233", 7850);
+        gameThread = new GameThread("192.168.80.51", 7850);
         gameThread.start();
     }
 
